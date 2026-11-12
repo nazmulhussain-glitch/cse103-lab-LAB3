@@ -162,3 +162,6 @@ K.R. Mangalam University
 
 \*\*Repository:\*\* \[cse103-lab-LAB3](https://github.com/nazmulhussain-glitch/cse103-lab-LAB3)
 
+## Description
+
+CSE103 lab repository — LAB 3.
