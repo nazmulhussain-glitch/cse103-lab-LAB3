@@ -1,167 +1,140 @@
-\# CSE103 Lab — LAB 3: GitHub Collaboration \& API Interaction
+# CSE103 Lab 3 — GitHub Collaboration & API Interaction
 
+**Student:** Nazmul Hussain  
+**GitHub:** [nazmulhussain-glitch](https://github.com/nazmulhussain-glitch)  
+**Repository:** [cse103-lab-LAB3](https://github.com/nazmulhussain-glitch/cse103-lab-LAB3)  
+**Course:** CSE103
 
+---
 
-!\[Last Commit](https://img.shields.io/github/last-commit/nazmulhussain-glitch/cse103-lab-LAB3)
+## 1. Overview
 
+This repository contains practical work for CSE103 Lab 3. It demonstrates the basic Git workflow, creating and managing a GitHub repository, tracking changes with commits, writing project documentation in Markdown, identifying common errors, and accessing structured information from a public JSON API using Python.
 
+The project is organised into small files so that each concept can be understood and reviewed separately. The Python examples are intentionally beginner-friendly and include comments, readable names, and basic error handling.
 
-!\[Language](https://img.shields.io/badge/language-Python-blue)
+## 2. Learning objectives
 
+After reviewing this project, a student should be able to:
 
+- Explain what a Git repository is and why version control is useful.
+- Create a repository and organise project files.
+- Track changes and save meaningful commits.
+- Push local project changes to GitHub and understand the purpose of pulling updates.
+- Write structured documentation using Markdown headings, lists, links, code blocks, and tables.
+- Recognise common programming and Git workflow errors.
+- Send a request to a public API and understand the JSON data returned.
+- Extract selected fields from JSON objects and save data to a file.
+- Write a simple unit test for a Python function.
 
-!\[Status](https://img.shields.io/badge/status-active-brightgreen)
-
-
-
-\## Overview
-
-
-
-This repository contains lab work for \*\*LAB 3\*\* of the Computer Fundamentals \& Career Pathways (CSE103) course at \*\*K.R. Mangalam University\*\*, Gurugram.
-
-
-
-The project demonstrates Git version control, GitHub collaboration, Markdown documentation, and API interaction.
-
-
-
-\## Repository Structure
-
-
+## 3. Project structure
 
 ```text
-
-cse103-lab-LAB3/
-
-|
-
-+-- README.md           # Project documentation
-
-+-- CHANGELOG.md        # Version history
-
-+-- MARKDOWN\_GUIDE.md   # Markdown syntax reference
-
-+-- main.py             # Primary Python script
-
-+-- .gitignore          # Files excluded from Git tracking
-
+CSE103-LAB3/
+├── README.md
+├── .gitignore
+├── CHANGELOG.md
+├── MARKDOWN_GUIDE.md
+├── main.py
+├── api_client.py
+├── sample_users.json
+└── tests/
+    └── test_api_client.py
 ```
 
+### File descriptions
 
-
-\## Skills Demonstrated
-
-
-
-| Skill | Status |
-
+| File or folder | Purpose |
 |---|---|
+| `README.md` | Main project introduction, instructions, and lab coverage |
+| `.gitignore` | Prevents temporary and generated files from being tracked |
+| `CHANGELOG.md` | Records the main project updates |
+| `MARKDOWN_GUIDE.md` | Demonstrates common Markdown formatting |
+| `main.py` | Runs a simple greeting and project-information example |
+| `api_client.py` | Requests user data from a public API and processes JSON |
+| `sample_users.json` | Small sample dataset for understanding JSON structure |
+| `tests/` | Contains automated tests for the API helper function |
 
-| Git initialisation | Completed |
+## 4. Requirements
 
-| Meaningful commits | Completed |
+- Python 3.9 or newer.
+- A code editor such as Visual Studio Code or any text editor.
+- Git and a GitHub account for version-control practice.
+- An internet connection when making the live API request.
 
-| Remote push / pull | Completed |
+The greeting program and unit test do not require an internet connection. The API client uses Python's standard library, so no additional Python package is required.
 
-| Markdown documentation | Completed |
+## 5. Run the Python examples
 
-| API interaction | Planned |
-
-
-
-\## How to Run
-
-
-
-Clone the repository:
-
-
-
-```bash
-
-git clone https://github.com/nazmulhussain-glitch/cse103-lab-LAB3.git
-
-```
-
-
-
-Navigate to the project directory:
-
-
+Open a terminal in the project directory and run:
 
 ```bash
-
-cd cse103-lab-LAB3
-
-```
-
-
-
-Run the Python program:
-
-
-
-```bash
-
 python main.py
-
 ```
 
+Expected output:
 
+```text
+Hello, Nazmul Hussain! Welcome to CSE103 Lab 3.
+Repository: cse103-lab-LAB3
+Topics: Git, GitHub, Markdown, debugging, and APIs.
+```
 
-\## Key Learning Outcomes
+To request live user data from JSONPlaceholder, run:
 
+```bash
+python api_client.py
+```
 
+The program requests the public `/users` endpoint, checks the response, displays selected user details, and saves the raw response to `users.json`. The generated `users.json` file is ignored by Git because it is an output file.
 
-\- Configured Git identity and initialised local repositories.
+If the network is unavailable or the server returns an error, the program displays an error message instead of stopping with an unexplained traceback.
 
-\- Created meaningful commits using Conventional Commit messages.
+## 6. Run the unit test
 
-\- Connected a local repository to GitHub.
+Run the test from the project directory:
 
-\- Pushed and pulled changes using remote repositories.
+```bash
+python -m unittest discover -s tests -v
+```
 
-\- Created professional Markdown documentation.
+The test checks that `summarize_users()` extracts the expected ID, name, and city from a sample user record. It uses Python's built-in `unittest` framework.
 
-\- Practised GitHub version control workflows.
+## 7. Git and GitHub workflow
 
+A typical version-control workflow is:
 
+```bash
+git status
+git add .
+git commit -m "Describe the change"
+git push
+```
 
-\## References
+- `git status` displays changed and untracked files.
+- `git add .` stages project changes for the next commit.
+- `git commit` saves a snapshot with a descriptive message.
+- `git push` uploads local commits to the remote GitHub repository.
 
+A developer can use `git pull` to download and integrate updates from the remote repository. Meaningful commit messages make the project history easier to understand.
 
+## 8. Lab question coverage
 
-\- \[Pro Git Book](https://git-scm.com/book/en/v2)
+| Question | Topic | Evidence in this repository |
+|---|---|---|
+| Q3.1 | Create and manage Git repositories | Repository structure and Git ignore rules |
+| Q3.2 | Track and commit changes | Version-control workflow and commit history |
+| Q3.3 | Push projects to GitHub | Public GitHub repository and push workflow |
+| Q3.4 | Create Markdown documentation | This README and `MARKDOWN_GUIDE.md` |
+| Q3.5 | Access public APIs and analyse JSON | `api_client.py` and `sample_users.json` |
+| Q3.6 | Debug common programming and workflow errors | Error handling, troubleshooting notes, and unit test |
 
-\- \[GitHub Skills](https://skills.github.com/)
+## 9. API and data notes
 
-\- \[Markdown Guide](https://www.markdownguide.org/)
+The live API example uses JSONPlaceholder, a public testing API. The `sample_users.json` file is a small illustrative dataset included to make the JSON structure easy to inspect. It is not represented as a newly downloaded live response. Running `api_client.py` creates a separate `users.json` file containing the response received at runtime.
 
+## 10. Author
 
-
-\## Author
-
-
-
-\*\*Nazmul Hussain\*\*
-
-
-
-BCA AI \& Data Science Student
-
-
-
-K.R. Mangalam University
-
-
-
-\*\*GitHub:\*\* \[nazmulhussain-glitch](https://github.com/nazmulhussain-glitch)
-
-
-
-\*\*Repository:\*\* \[cse103-lab-LAB3](https://github.com/nazmulhussain-glitch/cse103-lab-LAB3)
-
-## Description
-
-CSE103 lab repository — LAB 3.
+**Nazmul Hussain**  
+CSE103 — Lab 3  
+GitHub: [nazmulhussain-glitch](https://github.com/nazmulhussain-glitch)
